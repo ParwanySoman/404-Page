@@ -1,7 +1,22 @@
-body 
 
-	{ 	background: url(brokenglass.png) }
 
-h1 { color: white; }
-p { color: white; }
+h1 { color: white; 
+	padding-top: 20px;}
+h3 { color: white; }
+
+.ok { 
+	background-color: black;
+	opacity: 0.5;
+	border: solid white;
+	margin-top: 20%;
+	margin-bottom: 20%;
+	width: 50%;
+	height: 100%;
+	border-radius: 15%;
+
+} 
+
+
+
+
 
