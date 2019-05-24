@@ -1,173 +1,257 @@
-body { 
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
- }
-
-
-
- .ERROR { 
-
-  position: relative;
-  margin: auto;
-  height: 0.71em;
-  color: transparent;
-  font-family: 'Cambay', sans-serif;
-  font-size: 10vw;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.03em;
-  }
-
-  .ERROR > div { 
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: white;
-  pointer-events: none;
-   }
+body 
+{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    background-color: black;
+}
 
 
-   .ERROR > div:nth-child(1) { 
-   -webkit-mask-image: linear-gradient(black 25%, transparent25%);
-   mask-image: linear-gradient(black 25%, transparent 25%);
-   animation: ERROR1 5s infinite;
+
+h1 
+{
+    position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: calc(20px + 5vw);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.7em;
+    text-transform: uppercase;
+    text-shadow: 0 0 0.15em #fff;
+    user-select: none;
+    white-space: nowrap;
+    filter: blur(0.007em);
+    animation: shake 2.5s linear forwards;
+    
+}
+
+
+
+h1 span 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    -webkit-clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
+            clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
+    
+}
+
+
+
+h1::before,
+h1::after 
+{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+h1::before 
+{
+    animation: crack1 2.5s linear forwards;
+    -webkit-clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
+            clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
+}
+
+
+
+h1::after
+{
+    animation: crack2 2.5s linear forwards;
+    -webkit-clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
+            clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
+}
+
+
+
+@keyframes shake 
+{
+    
+    5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
+        filter: blur(0.018em);
+        transform: translateY(0.018em) rotate(0deg);
     }
 
-.ERROR > div:nth-child(2) { 
+    10%, 30%, 40%, 50%, 70%, 80%, 90% {
+        filter: blur(0.01em);
+        transform: translateY(-0.018em) rotate(0deg);
+    }
 
--webkit-mask-image: linear-gradient(transparent 25%, black 25%, transparent 25%);
-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
-animation: ERROR2 5s infinite 
+    20%, 60% {
+        filter: blur(0.03em);
+        transform: translate(-0.018em, 0.018em) rotate(0deg);
+    }
+
+    45%, 85% {
+        filter: blur(0.03em);
+        transform: translate(0.018em, -0.018em) rotate(0deg);
+    }
+
+    100% {
+        filter: blur(0.007em);
+        transform: translate(0) rotate(-0.5deg);
+    }
 }
 
 
 
-.ERROR > div:nth-child(3) {    
+@keyframes crack1 
+{
+    0%, 95% {
+        transform: translate(-50%, -50%);
+    }
 
-  -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-  mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-  animation: ERROR3 5s infinite;
-}
-
-.ERROR > div:nth-child(4) { 
-
--webkit-mask-image: linear-gradient(transparent 75%, black 75%);
-  mask-image: linear-gradient(transparent 75%, black 75%);
-  animation: ERROR4 5s infinite;
+    100% {
+        transform: translate(-51%, -48%);
+    }
 }
 
 
-@keyframes ERROR1 {
 
+@keyframes crack2 
+{
+    0%, 95% {
+        transform: translate(-50%, -50%);
+    }
 
-  0% {
-    transform: translateX(100%);
-  }
-  26% {
-    transform: translateX(0%);
-  }
-  83% {
-    transform: translateX(-0.1%);
-  }
-  100% {
-    transform: translateX(-120%);
-  }
+    100% {
+        transform: translate(-49%, -53%);
+    }
 }
 
 
-@keyframes ERROR2 {
 
-
-  0% {
-    transform: translateX(100%);
-  }
-  24% {
-    transform: translateX(0.5%);
-  }
-  82% {
-    transform: translateX(-0.2%);
-  }
-  100% {
-    transform: translateX(-125%);
-  }
+.container 
+{ 
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 30%); 
+    width: 80%;
 }
 
 
-@keyframes ERROR3 {
 
-
-  0% {
-    transform: translateX(100%);
-  }
-  22% {
-    transform: translateX(0%);
-  }
-  81% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-130%);
-  }
+.container span 
+{ 
+    color: white;
+    text-transform: uppercase;
+    display: block;
 }
 
 
-@keyframes ERROR4 {
 
+ .text1 
+ { 
+    font-size: 60px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text 5s 1;
 
-  0% {
-    transform: translateX(100%);
-  }
-  20% {
-    transform: translateX(0%);
-  }
-  80% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-135%);
-  }
 }
 
 
 
 
+@keyframes text 
+{
+
+    0% 
+    { margin-bottom: -5px;
+    }
+
+    30% 
+    { letter-spacing: 25px;
+    }
+
+    85% 
+    { letter-spacing: 8px;
+    }
+}
+
+
+img 
+{ 
+    padding-top: 10%; 
+}
 
 
 
+button { 
 
+position: absolute;
+transform: translate(-10%, -10%); 
+top: 5%;
+left: 80%;
+background-image: none;
+background-color: black;
+width: 240px;
+height: 70px;
+border-radius: 1px solid #338033;
+font-size: 18px;
+border-radius: 4px;
+transition: .6s;
+overflow: hidden;
+margin-right: 10%;
 
-
-
-
-
-.mydiv { border-radius: 1px solid black;
--webkit-animation: mymove 5s infinite;
-animation: mymove 5s infinite; 
-border: 5px solid white;
-color: white;
-text-align: center;
-width: 50%;
-margin-left: 25%;
-margin-right: 25%;
-border-radius: 25px;}
-
-@-webkit-keyframes mymove { 
-50% {opacity: 0;}
  }
 
- @keyframes mymove { 
- 50% { opacity: 0; }
+button: focus { 
 
+outline: none;
+ }
+
+button:before { 
+content: '';
+display: block;
+position: absolute
+background: rgb(255, 255,255,.5);
+
+width: 60px;
+height: 100%;
+left: 0;
+top: 0;
+opacity: .5s;
+filter: blur(30px);
+transform: translateX(-130px) skewX(-15deg);
+ }
+
+ button:after { 
+ content: '';
+ display: block;
+ position: absolute;
+ background: rgb(255,255,255,.2);
+ width: 30px;
+ height: 100%
+ left: 30px;
+ top: 0;
+ opacity: 0;
+ filter: blur(30px); 
+ transform: translate(-100px) scaleX(-15deg);
+
+}
+
+button:hover { background: #338033;
+cursor: pointer;
+ }
+
+ button:hover:before { 
+ transform: translateX(300px) skewX(-15deg);
+ opacity: .6;
+ transition: .7s;
   }
 
-
-  .button { border-radius: 5px; 
-    color: white;}
-
-    a { color: black; }
+  button:hover:after { 
+ transform: translateX(300px) skewX(-15deg);
+ opacity: .1;
+ transition: .7s;
+  }
